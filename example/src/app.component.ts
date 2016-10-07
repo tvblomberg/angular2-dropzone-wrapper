@@ -9,14 +9,23 @@ import { DropzoneConfigInterface } from 'angular2-dropzone-wrapper';
 })
 export class AppComponent {
   private title = 'Simple example app for the angular2-dropzone-wrapper';
+  public myAddedFile: Function;
 
   private config: DropzoneConfigInterface = {
     params: "name=test.png&directory=images"
   };
 
+  public callback() {
+    console.log("From Custom Function ");
+  }
+
   private uploadedImages = [];
 
   constructor() { }
+
+  ngOnInit() {
+    //this.myAddedFile = this.callback.bind(this);
+  }
 
   onUploadDone(event: any) {
     console.log('onUploadDone:', event);

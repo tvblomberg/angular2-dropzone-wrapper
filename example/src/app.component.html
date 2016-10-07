@@ -5,9 +5,7 @@
     For this example to work you need a server that can handle the uploading of the file.
   </div>
 
-  <div class="upload-container">
-    <dropzone class="upload-area" [config]="config" [placeholder]="'Drag or click here to upload an image'" (uploadDone)="onUploadDone($event)" (uploadError)="onUploadError($event)"></dropzone>
-  </div>
+    <dropzone [showOriginalContainer]="true" [config]="config" [addedFile]="myAddedFile" [placeholder]="'Drag or click here to upload an image'" (uploadDone)="onUploadDone($event)" (uploadError)="onUploadError($event)"></dropzone>
 
   <div class="uploads-container">
     <div *ngFor="let image of uploadedImages">
@@ -15,3 +13,7 @@
     </div>
   </div>
 </div>
+
+<button id="test">Click me</button>
+
+<div class="attachment"></div>

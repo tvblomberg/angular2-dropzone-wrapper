@@ -6,7 +6,15 @@ export interface DropzoneConfigInterface {
 
   maxFilesize?: number,
   previewDelay?: number,
-  acceptedFiles?: string
+  acceptedFiles?: string,
+  uploadMultiple?: boolean,
+  parallelUploads?: number,
+  addRemoveLinks?: boolean,
+  previewsContainer?: string,
+  previewTemplate?: string,
+  clickable?: string,
+  autoProcessQueue?: boolean,
+  autoDiscover?: boolean,
 }
 
 export class DropzoneConfig implements DropzoneConfigInterface {
@@ -19,6 +27,14 @@ export class DropzoneConfig implements DropzoneConfigInterface {
   maxFilesize: number;
   previewDelay: number;
   acceptedFiles: string;
+  uploadMultiple: boolean = false;
+  paralleluploads: number = 1;
+  addRemoveLinks: boolean = false;
+  previewsContainer: string;
+  clickable: string;
+  previewTemplate: string;
+  autoProcessQueue: boolean = true;
+  autoDiscover: boolean = false;
 
   constructor(config: DropzoneConfigInterface = {}) {
     this.assign(config);
