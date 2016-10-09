@@ -12,7 +12,8 @@ const DROPZONE_CONFIG: DropzoneConfigInterface = {
   maxFilesize: 50,
   autoProcessQueue: false,
   uploadMultiple: true,
-  autoDiscover: false
+  autoDiscover: false,
+  clickable: "#test"
 };
 
 @NgModule({

@@ -26,12 +26,14 @@ export class DropzoneComponent implements OnInit, OnChanges {
   @Input() public sending: Function = this.defaultCallback;
   @Input() public removedFile: Function = this.defaultCallback;
   @Input() public addedFile: Function = this.defaultCallback;
+  @Input() public accept: Function = this.defaultCallback;
   @Input() public complete: Function = this.defaultCallback;
   @Input() public dragenter: Function = this.defaultCallback;
   @Input() public dragend: Function = this.defaultCallback;
   @Input() public drop: Function = this.defaultCallback;
   @Input() public renameFileName: Function = this.defaultCallback;
   @Input() public showOriginalContainer: boolean = true;
+  @Input() public queuecomplete: Function = this.defaultCallback;
   @HostBinding('class.dropzone') useDropzoneClass = this.showOriginalContainer;
 
   constructor( private elementRef: ElementRef, @Optional() private defaults: DropzoneConfig ) {
@@ -43,6 +45,7 @@ export class DropzoneComponent implements OnInit, OnChanges {
   ngOnInit() {
     Dropzone.autoDiscover = false;
     this.dropzone = new Dropzone(this.dropzoneElement, this.dropzoneConfig);
+    Dropzone.autoDiscover = false;
 
     this.dropzone.on('error', (err) => {
       this.uploadError.emit({msg: "Upload error", error: err});
@@ -68,6 +71,8 @@ export class DropzoneComponent implements OnInit, OnChanges {
     this.dropzone.on('dragend', this.dragend);
     this.dropzone.on('drop', this.drop);
     this.dropzone.on('renameFileName', this.renameFileName);
+    this.dropzone.on("queuecomplete", this.queuecomplete);
+    this.dropzone.on("accepted", this.accept);
   }
 
   public getDropzoneInstances(): any {

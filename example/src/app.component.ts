@@ -24,7 +24,7 @@ export class AppComponent {
   constructor() { }
 
   ngOnInit() {
-    //this.myAddedFile = this.callback.bind(this);
+    this.myAddedFile = this.callback.bind(this);
   }
 
   onUploadDone(event: any) {

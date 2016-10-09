@@ -14,16 +14,18 @@ export declare class DropzoneComponent implements OnInit, OnChanges {
     sending: Function;
     removedFile: Function;
     addedFile: Function;
+    accept: Function;
     complete: Function;
     dragenter: Function;
     dragend: Function;
     drop: Function;
     renameFileName: Function;
     showOriginalContainer: boolean;
+    queuecomplete: Function;
     useDropzoneClass: boolean;
     constructor(elementRef: ElementRef, defaults: DropzoneConfig);
     ngOnInit(): void;
-    getFiles(): any;
+    getDropzoneInstances(): any;
     private defaultCallback(e);
     ngOnChanges(changes: SimpleChanges): void;
 }
