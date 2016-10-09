@@ -15,6 +15,7 @@ export interface DropzoneConfigInterface {
   clickable?: string,
   autoProcessQueue?: boolean,
   autoDiscover?: boolean,
+  renameFilename?: Function,
 }
 
 export class DropzoneConfig implements DropzoneConfigInterface {
@@ -35,6 +36,7 @@ export class DropzoneConfig implements DropzoneConfigInterface {
   previewTemplate: string;
   autoProcessQueue: boolean = true;
   autoDiscover: boolean = false;
+  renameFilename: Function;
 
   constructor(config: DropzoneConfigInterface = {}) {
     this.assign(config);

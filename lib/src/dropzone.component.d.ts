@@ -19,12 +19,13 @@ export declare class DropzoneComponent implements OnInit, OnChanges {
     dragenter: Function;
     dragend: Function;
     drop: Function;
-    renameFileName: Function;
     showOriginalContainer: boolean;
     queuecomplete: Function;
     constructor(elementRef: ElementRef, defaults: DropzoneConfig);
     ngOnInit(): void;
     getDropzoneInstances(): any;
     private defaultCallback(e);
+    processFile(url: any, file: any): void;
+    getDropzone(): any;
     ngOnChanges(changes: SimpleChanges): void;
 }

@@ -13,6 +13,7 @@ export interface DropzoneConfigInterface {
     clickable?: string;
     autoProcessQueue?: boolean;
     autoDiscover?: boolean;
+    renameFilename?: Function;
 }
 export declare class DropzoneConfig implements DropzoneConfigInterface {
     url: string;
@@ -30,6 +31,7 @@ export declare class DropzoneConfig implements DropzoneConfigInterface {
     previewTemplate: string;
     autoProcessQueue: boolean;
     autoDiscover: boolean;
+    renameFilename: Function;
     constructor(config?: DropzoneConfigInterface);
     assign(config?: DropzoneConfigInterface): void;
 }

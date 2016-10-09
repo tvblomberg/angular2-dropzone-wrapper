@@ -31,9 +31,9 @@ export class DropzoneComponent implements OnInit, OnChanges {
   @Input() public dragenter: Function = this.defaultCallback;
   @Input() public dragend: Function = this.defaultCallback;
   @Input() public drop: Function = this.defaultCallback;
-  @Input() public renameFileName: Function = this.defaultCallback;
   @Input() public showOriginalContainer: boolean = true;
   @Input() public queuecomplete: Function = this.defaultCallback;
+
   //@HostBinding('class.dropzone') useDropzoneClass = this.showOriginalContainer;
 
   constructor( private elementRef: ElementRef, @Optional() private defaults: DropzoneConfig ) {
@@ -71,7 +71,6 @@ export class DropzoneComponent implements OnInit, OnChanges {
     this.dropzone.on('dragenter', this.dragenter);
     this.dropzone.on('dragend', this.dragend);
     this.dropzone.on('drop', this.drop);
-    this.dropzone.on('renameFileName', this.renameFileName);
     this.dropzone.on("queuecomplete", this.queuecomplete);
   }
 
@@ -83,6 +82,15 @@ export class DropzoneComponent implements OnInit, OnChanges {
     if (this.logging) {
       console.log(e);
     }
+  }
+
+  public processFile(url, file): void {
+    this.dropzone.url = url;
+    this.dropzone.processFile(file);
+  }
+
+  public getDropzone() {
+    return this.dropzone;
   }
 
   ngOnChanges(changes: SimpleChanges) {
