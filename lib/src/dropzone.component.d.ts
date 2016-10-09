@@ -22,7 +22,6 @@ export declare class DropzoneComponent implements OnInit, OnChanges {
     renameFileName: Function;
     showOriginalContainer: boolean;
     queuecomplete: Function;
-    useDropzoneClass: boolean;
     constructor(elementRef: ElementRef, defaults: DropzoneConfig);
     ngOnInit(): void;
     getDropzoneInstances(): any;

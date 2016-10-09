@@ -34,7 +34,7 @@ export class DropzoneComponent implements OnInit, OnChanges {
   @Input() public renameFileName: Function = this.defaultCallback;
   @Input() public showOriginalContainer: boolean = true;
   @Input() public queuecomplete: Function = this.defaultCallback;
-  @HostBinding('class.dropzone') useDropzoneClass = this.showOriginalContainer;
+  //@HostBinding('class.dropzone') useDropzoneClass = this.showOriginalContainer;
 
   constructor( private elementRef: ElementRef, @Optional() private defaults: DropzoneConfig ) {
     this.dropzoneConfig = new DropzoneConfig(defaults);
@@ -54,6 +54,7 @@ export class DropzoneComponent implements OnInit, OnChanges {
         this.dropzone.removeAllFiles();
       }, 5000);
     });
+    this.dropzone.accept = this.accept;
 
     this.dropzone.on('success', (res) => {
       this.uploadDone.emit(res);
@@ -72,7 +73,6 @@ export class DropzoneComponent implements OnInit, OnChanges {
     this.dropzone.on('drop', this.drop);
     this.dropzone.on('renameFileName', this.renameFileName);
     this.dropzone.on("queuecomplete", this.queuecomplete);
-    this.dropzone.on("accepted", this.accept);
   }
 
   public getDropzoneInstances(): any {
