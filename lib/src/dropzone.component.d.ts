@@ -28,4 +28,5 @@ export declare class DropzoneComponent implements OnInit, OnChanges {
     processFile(url: any, file: any): void;
     getDropzone(): any;
     ngOnChanges(changes: SimpleChanges): void;
+    ngOnDestroy(): void;
 }

@@ -98,4 +98,9 @@ export class DropzoneComponent implements OnInit, OnChanges {
 
     this.dropzoneConfig.assign(this.config);
   }
+
+  ngOnDestroy() {
+    /* Cleanup unused dom elements from dropzone */
+    document.querySelector(".dz-hidden-input").remove();
+  }
 }
